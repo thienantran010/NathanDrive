@@ -1,5 +1,6 @@
 package com.easypan.controller;
 import com.easypan.entity.constants.Constants;
+import com.easypan.entity.dto.SessionShareDto;
 import com.easypan.entity.dto.SessionWebUserDto;
 import com.easypan.entity.enums.ResponseCodeEnum;
 import com.easypan.entity.vo.PaginationResultVO;
@@ -76,6 +77,10 @@ public class ABaseController {
         FileInputStream in = null;
         try{
             File file = new File(filePath);
+            if (!file.exists()){
+                return;
+            }
+            in = new FileInputStream(file);
             byte[] byteData = new byte[1024];
             out = response.getOutputStream();
             int len = 0;
@@ -106,6 +111,11 @@ public class ABaseController {
     protected SessionWebUserDto getUserInfoFromSession(HttpSession session){
         SessionWebUserDto sessionWebUserDto = (SessionWebUserDto) session.getAttribute(Constants.SESSION_KEY);
         return sessionWebUserDto;
+    }
+
+    protected SessionShareDto getSessionShareFromSession(HttpSession session, String shareId){
+        SessionShareDto sessionShareDto = (SessionShareDto) session.getAttribute(Constants.SESSION_SHARE_KEY + shareId);
+        return sessionShareDto;
     }
 }
 

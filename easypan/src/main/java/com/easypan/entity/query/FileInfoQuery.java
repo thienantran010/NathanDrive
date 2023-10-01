@@ -1,5 +1,7 @@
 package com.easypan.entity.query;
 
+import io.lettuce.core.output.BooleanOutput;
+
 import java.util.Date;
 
 
@@ -115,6 +117,45 @@ public class FileInfoQuery extends BaseParam {
 	 */
 	private Integer delFlag;
 
+	private String[] fileIdArray;
+
+	private String[] excludeFileIdArray;
+
+	private Boolean queryNicKName;
+
+	private Boolean queryExpire;
+
+	public Boolean getQueryExpire() {
+		return queryExpire;
+	}
+
+	public void setQueryExpire(Boolean queryExpire) {
+		this.queryExpire = queryExpire;
+	}
+
+	public Boolean getQueryNicKName() {
+		return queryNicKName;
+	}
+
+	public void setQueryNicKName(Boolean queryNicKName) {
+		this.queryNicKName = queryNicKName;
+	}
+
+	public String[] getExcludeFileIdArray() {
+		return excludeFileIdArray;
+	}
+
+	public void setExcludeFileIdArray(String[] excludeFileIdArray) {
+		this.excludeFileIdArray = excludeFileIdArray;
+	}
+
+	public String[] getFileIdArray() {
+		return fileIdArray;
+	}
+
+	public void setFileIdArray(String[] fileIdArray) {
+		this.fileIdArray = fileIdArray;
+	}
 
 	public void setFileId(String fileId){
 		this.fileId = fileId;

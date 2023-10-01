@@ -7,7 +7,10 @@ public enum ResponseCodeEnum {
     CODE_600(600, "apply parameters incorrect"),
     CODE_601(601, "information has already existed"),
     CODE_500(500, "Server return error, please contact administrator"),
-    CODE_901(901, "Login time out, please login again");
+    CODE_901(901, "Login time out, please login again"),
+    CODE_902(902, "share link doesn't exist, or is no longer valid"),
+    CODE_903(903, "share verification failed, please verify again"),
+    CODE_904(904, "storage full! please expand");
 
     private Integer code;
 

@@ -38,7 +38,7 @@ import java.io.PrintWriter;
 public class AccountController extends ABaseController {
 
     private static final String CONTENT_TYPE = "Content-Type";
-    private static final String CONTENT_TYPE_VALUE = "applicant/json;charset=UTF-8";
+    private static final String CONTENT_TYPE_VALUE = "application/json;charset=UTF-8";
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @Resource
@@ -179,12 +179,6 @@ public class AccountController extends ABaseController {
         }
     }
 
-    @RequestMapping("/getUserInfo")
-    @GlobalInterceptor(checkParams = true)
-    public ResponseVO getUserInfo(HttpSession session) {
-        SessionWebUserDto sessionWebUserDto = getUserInfoFromSession(session);
-        return getSuccessResponseVO(sessionWebUserDto);
-    }
 
     @RequestMapping("/getUseSpace")
     @GlobalInterceptor

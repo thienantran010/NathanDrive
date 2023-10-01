@@ -1,4 +1,5 @@
 package com.easypan.utils;
+import com.easypan.entity.constants.Constants;
 import com.easypan.exception.BusinessException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -17,7 +18,9 @@ public class StringTools {
     public static final String getRandomNumber(Integer count) {
         return RandomStringUtils.random(count, false, true);
     }
-
+    public static final String getRandomString(Integer count) {
+        return RandomStringUtils.random(count, true, true);
+    }
 
     public static void checkParam(Object param) {
         try {
@@ -76,5 +79,29 @@ public class StringTools {
             return false;
         }
         return true;
+    }
+
+    public static String rename(String fileName) {
+        String fileNameReal = getFileNameNoSuffix(fileName);
+        String suffix = getFileSuffix(fileName);
+        return fileNameReal + "_" + getRandomString(Constants.LENGTH_5) + suffix;
+    }
+
+    public static String getFileNameNoSuffix(String fileName) {
+        Integer index = fileName.lastIndexOf(".");
+        if (index == -1) {
+            return fileName;
+        }
+        fileName = fileName.substring(0, index);
+        return fileName;
+    }
+
+    public static String getFileSuffix(String fileName){
+        Integer index = fileName.lastIndexOf(".");
+        if (index == -1) {
+            return "";
+        }
+        String suffix = fileName.substring(index);
+        return suffix;
     }
 }

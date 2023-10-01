@@ -129,4 +129,9 @@ public interface UserInfoService {
 	SessionWebUserDto login(String email, String password);
 
 	void resetPwd(String email, String password, String emailCode);
+
+	void updateUserStatus(String userId, Integer status);
+
+	void changeUserSpace(String userId, Integer changeSpace);
+
 }
